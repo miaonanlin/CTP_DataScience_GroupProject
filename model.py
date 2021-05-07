@@ -31,4 +31,4 @@ model.fit(X_train, y_train)
 
 #pickle.dump(vectorizer, open('models/vectorizer.pkl', 'wb') )
 
-pickle.dump(model, open('models/text-classifier.pkl', 'wb') )
+pickle.dump(model, open('text-classifier.pkl', 'wb') )
