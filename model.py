@@ -8,17 +8,11 @@ import matplotlib.pyplot as plt
 from sklearn import tree
 # Helper function to split our data
 from sklearn.model_selection import train_test_split
-# Helper fuctions to evaluate our model.
-from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, f1_score, roc_auc_score
-# Helper function for hyper-parameter turning.
-
 # Import our Decision Tree
 from sklearn.tree import DecisionTreeClassifier
 # Import our Random Forest
 from sklearn.ensemble import RandomForestClassifier
-# Library for visualizing our tree
-# If you get an error, run 'pip install graphviz' in your terminal
-import graphviz
+
 import pickle
 
 df = pd.read_csv('https://raw.githubusercontent.com/miaonanlin/CTP_DataScience_GroupProject/main/phishing_website_dataset.csv')
