@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 # Helper fuctions to evaluate our model.
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, f1_score, roc_auc_score
 # Helper function for hyper-parameter turning.
-from sklearn.model_selection import GridSearchCV
+
 # Import our Decision Tree
 from sklearn.tree import DecisionTreeClassifier
 # Import our Random Forest
