@@ -20,6 +20,11 @@ with open(path_to_classifier, 'rb') as f:
 #with open(path_to_image_classifier, 'rb') as f:
     #image_classifier = pickle.load(f)
 
+@app.route('/', methods=['GET', 'POST'])
+def main():
+    if flask.request.method == 'GET':
+        # Just render the initial form, to get input
+        return(flask.render_template('index.html'))
 
 
 
