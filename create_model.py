@@ -1,18 +1,11 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
-sns.set()
-import matplotlib.pyplot as plt
-%matplotlib inline
 # Import the trees from sklearn
 from sklearn import tree
 # Helper function to split our data
 from sklearn.model_selection import train_test_split
-# Import our Decision Tree
-from sklearn.tree import DecisionTreeClassifier
 # Import our Random Forest
 from sklearn.ensemble import RandomForestClassifier
-
 import pickle
 
 df = pd.read_csv('https://raw.githubusercontent.com/miaonanlin/CTP_DataScience_GroupProject/main/phishing_website_dataset.csv')
@@ -31,4 +24,4 @@ model.fit(X_train, y_train)
 
 #pickle.dump(vectorizer, open('models/vectorizer.pkl', 'wb') )
 
-pickle.dump(model, open('text-classifier.pkl', 'wb') )
+pickle.dump(model, open('models/classifier.pkl', 'wb') )
