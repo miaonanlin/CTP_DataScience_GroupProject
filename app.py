@@ -25,13 +25,12 @@ def main():
     if flask.request.method == 'GET':
         # Just render the initial form, to get input
         return(flask.render_template('index.html'))
-
-
+   
 
 @app.route('/input_values/', methods=['GET', 'POST'])
 def input_values():
     if flask.request.method == 'GET':
-        # Just render the initial form, to get input
+         Just render the initial form, to get input
         return(flask.render_template('input_values.html'))
 
     if flask.request.method == 'POST':
