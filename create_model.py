@@ -9,7 +9,11 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 
 df = pd.read_csv('https://raw.githubusercontent.com/miaonanlin/CTP_DataScience_GroupProject/main/phishing_website_dataset.csv')
-select_features = ['SSLfinal_State','URL_of_Anchor', 'web_traffic',  'having_Sub_Domain','Links_in_tags']
+select_features = ['SSLfinal_State','URL_of_Anchor',
+                   'web_traffic',  'having_Sub_Domain',
+                   'Links_in_tags', 'Prefix_Suffix',
+                   'Links_pointing_to_page', 'SFH',
+                   'Request_URL', 'Domain_registeration_length']
 
 X = df[select_features]
 
