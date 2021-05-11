@@ -2,6 +2,7 @@ import flask
 import os
 import pickle
 import pandas as pd
+import sklearn 
 from skimage import io
 from skimage import transform
 
