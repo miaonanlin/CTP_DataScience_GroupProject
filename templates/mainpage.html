@@ -2,34 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My Web App</title>
+    <title>Phishing Websites Detector</title>
+    <link href="predict.css" rel="stylesheet" type="text/css" />
   </head>
+
+
   <body>
-  	<h1> Hello Inputs! </h1>
+  	<h1> Phishing URL Websites Detector </h1>
+
+
 <form action="{{ url_for('main') }}" method="POST">
-    <fieldset>
-        <legend>Input values:</legend>
-        First input variable:
-        <input name="input_variable_one" type="number" required>
-        <br>
-        <br> Another input field :
-        <input name="another-input-variable" type="number" required>
-        <br>
-        <br> Third input field:
-        <input name="third-input-variable" type="text" required>
-        <br>
-        <br>
-        <input type="submit">
-    </fieldset>
+
+  <table class="box" width="0%" cellpadding="15" border="1">
+
+    <tr><th colspan="5"> <h3>Address Bar based Features</h3></th></tr>
+
+      <tr>
+				<td>
+          <h3>SSL Final State</h3>
+          <select name="input_variable_one" type="number" required>
+          		<option>Option</option>
+          		<option>1</option>
+          		<option>-1</option>
+         </select>
+       </td>
+
+       <td>
+         <h3>Show IP Address or Hexadecimal Code</h3>
+         <select name="another-input-variable" type="number" required>
+             <option>Option</option>
+             <option>1</option>
+             <option>-1</option>
+        </select>
+       </td>
+
+       <td>
+         <h3>SFH</h3>
+         <select name="third-input-variable" type="number" required>
+             <option>Option</option>
+             <option>1</option>
+             <option>-1</option>
+        </select>
+       </td>
+
+       <td>
+         <h3>URL Length</h3>
+         <select name="fourth-input-variable" type="number" required>
+             <option>Option</option>
+             <option>1</option>
+             <option>-1</option>
+        </select>
+       </td>
+
+       <td>
+         <h3>URL Shortining Service</h3>
+         <select name="fifth-input-variable" type="number" required>
+             <option>Option</option>
+             <option>1</option>
+             <option>-1</option>
+        </select>
+       </td>
+
+     </tr>
+
+<tr>
+
+  <td>
+    <h3>Having @ Symbol</h3>
+    <select name="sixth-input-variable" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>Double Slash Redirecting</h3>
+    <select name="seventh-input-variable" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>Prefix Suffix</h3>
+    <select name="eighth-input-variable" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>having Sub Domain</h3>
+    <select name="ninth-input-variable" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>Domain Registeration Length</h3>
+    <select name="tenth-input-variable" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+</tr>
+
+<div class="pre">
+<tr><th colspan="5"> <input type="submit" value="Predict"></th></tr>
+</div>
+
+
+</table>
+</form>
 
 
 
 
-    <div class="alert alert-success">
 
 
-
-    </div>
 
 
 
