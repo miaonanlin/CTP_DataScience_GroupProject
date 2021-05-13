@@ -122,14 +122,25 @@
 </table>
 </form>
 
+<div class = "alert alert-success">
 
+  {% if input_text %}
+    <h4> User Input: {{ input_text }} </h4>
+  {% endif %}
 
+  {% if result %}
+    <h4> Result: {{ result }} </h4>
+  {% endif %}
 
+  {% if percent_legit %}
+    <h4> Percentage of Legitimacy: {{ percent_legit }} </h4>
+  {% endif %}
 
+  {% if percent_phishing %}
+    <h4> Percentage of Phishiness: {{ percent_phishing }} </h4>
+  {% endif %}
 
-
-
-
+</div>
 
   </body>
 </html>
