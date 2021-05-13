@@ -30,17 +30,17 @@ def main():
 
         if flask.request.method == 'POST':
             # Get the input from the user.
-            var_one = flask.request.form['input_variable_one']
-            var_two = flask.request.form['another-input-variable']
-            var_three = flask.request.form['third-input-variable']
-            var_fourth = flask.request.form['fourth-input-variable']
-            var_fifth = flask.request.form['fifth-input-variable']
+            var_one = flask.request.form["SSLfinal_State"]
+            var_two = flask.request.form["URL_of_Anchor"]
+            var_three = flask.request.form["web_traffic"]
+            var_fourth = flask.request.form["having_Sub_Domain"]
+            var_fifth = flask.request.form["Links_in_tags"]
 
-            var_sixth = flask.request.form['sixth-input-variable']
-            var_seventh = flask.request.form['seventh-input-variable']
-            var_eighth = flask.request.form['eighth-input-variable']
-            var_ninth = flask.request.form['ninth-input-variable']
-            var_tenth = flask.request.form['tenth-input-variable']
+            var_sixth = flask.request.form["Prefix_Suffix"]
+            var_seventh = flask.request.form["Links_pointing_to_page"]
+            var_eighth = flask.request.form["SFH"]
+            var_ninth = flask.request.form["Request_URL"]
+            var_tenth = flask.request.form["Domain_registeration_length"]
 
         user_input_text = [var_one, var_two, var_three, var_fourth, var_fifth,
                          var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]

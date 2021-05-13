@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Phishing Websites Detector</title>
-    <link href="predict.css" rel="stylesheet" type="text/css" />
   </head>
 
 
@@ -20,7 +19,7 @@
       <tr>
 				<td>
           <h3>SSL Final State</h3>
-          <select name="input_variable_one" type="number" required>
+          <select name="SSLfinal_State" type="number" required>
           		<option>Option</option>
           		<option>1</option>
           		<option>-1</option>
@@ -28,8 +27,8 @@
        </td>
 
        <td>
-         <h3>Show IP Address or Hexadecimal Code</h3>
-         <select name="another-input-variable" type="number" required>
+         <h3>URL of Anchor</h3>
+         <select name="URL_of_Anchor" type="number" required>
              <option>Option</option>
              <option>1</option>
              <option>-1</option>
@@ -37,8 +36,8 @@
        </td>
 
        <td>
-         <h3>SFH</h3>
-         <select name="third-input-variable" type="number" required>
+         <h3>Web Traffic</h3>
+         <select name="web_traffic" type="number" required>
              <option>Option</option>
              <option>1</option>
              <option>-1</option>
@@ -46,8 +45,8 @@
        </td>
 
        <td>
-         <h3>URL Length</h3>
-         <select name="fourth-input-variable" type="number" required>
+         <h3>Having Sub Domain</h3>
+         <select name="having_Sub_Domain" type="number" required>
              <option>Option</option>
              <option>1</option>
              <option>-1</option>
@@ -55,8 +54,8 @@
        </td>
 
        <td>
-         <h3>URL Shortining Service</h3>
-         <select name="fifth-input-variable" type="number" required>
+         <h3>Links in Tags</h3>
+         <select name="Links_in_tags" type="number" required>
              <option>Option</option>
              <option>1</option>
              <option>-1</option>
@@ -68,26 +67,8 @@
 <tr>
 
   <td>
-    <h3>Having @ Symbol</h3>
-    <select name="sixth-input-variable" type="number" required>
-        <option>Option</option>
-        <option>1</option>
-        <option>-1</option>
-   </select>
-  </td>
-
-  <td>
-    <h3>Double Slash Redirecting</h3>
-    <select name="seventh-input-variable" type="number" required>
-        <option>Option</option>
-        <option>1</option>
-        <option>-1</option>
-   </select>
-  </td>
-
-  <td>
     <h3>Prefix Suffix</h3>
-    <select name="eighth-input-variable" type="number" required>
+    <select name="Prefix_Suffix" type="number" required>
         <option>Option</option>
         <option>1</option>
         <option>-1</option>
@@ -95,8 +76,26 @@
   </td>
 
   <td>
-    <h3>having Sub Domain</h3>
-    <select name="ninth-input-variable" type="number" required>
+    <h3>Links Pointing to Page</h3>
+    <select name="Links_pointing_to_page" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>SFH</h3>
+    <select name="SFH" type="number" required>
+        <option>Option</option>
+        <option>1</option>
+        <option>-1</option>
+   </select>
+  </td>
+
+  <td>
+    <h3>Request URL</h3>
+    <select name="Request_URL" type="number" required>
         <option>Option</option>
         <option>1</option>
         <option>-1</option>
@@ -105,7 +104,7 @@
 
   <td>
     <h3>Domain Registeration Length</h3>
-    <select name="tenth-input-variable" type="number" required>
+    <select name="Domain_registeration_length" type="number" required>
         <option>Option</option>
         <option>1</option>
         <option>-1</option>
@@ -121,26 +120,6 @@
 
 </table>
 </form>
-
-<div class = "alert alert-success">
-
-  {% if input_text %}
-    <h4> User Input: {{ input_text }} </h4>
-  {% endif %}
-
-  {% if result %}
-    <h4> Result: {{ result }} </h4>
-  {% endif %}
-
-  {% if percent_legit %}
-    <h4> Percentage of Legitimacy: {{ percent_legit }} </h4>
-  {% endif %}
-
-  {% if percent_phishing %}
-    <h4> Percentage of Phishiness: {{ percent_phishing }} </h4>
-  {% endif %}
-
-</div>
 
   </body>
 </html>
