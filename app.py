@@ -2,8 +2,8 @@ import flask
 import os
 import pickle
 import pandas as pd
-from skimage import io
-from skimage import transform
+import numpy as np
+import sklearn 
 
 app = flask.Flask(__name__, template_folder='templates')
 
@@ -27,24 +27,30 @@ def main():
         #"sixth-input-variable", "seventh-input-variable", 'eighth-input-variable',
         #"ninth-input-variable", "tenth-input-variable"]
 
-        if flask.request.method == 'POST':
+    if flask.request.method == 'POST':
             # Get the input from the user.
-            var_one = flask.request.form["SSLfinal_State"]
-            var_two = flask.request.form["URL_of_Anchor"]
-            var_three = flask.request.form["web_traffic"]
-            var_fourth = flask.request.form["having_Sub_Domain"]
-            var_fifth = flask.request.form["Links_in_tags"]
+        var_one = flask.request.form["SSLfinal_State"]
+        var_two = flask.request.form["URL_of_Anchor"]
+        var_three = flask.request.form["web_traffic"]
+        var_fourth = flask.request.form["having_Sub_Domain"]
+        var_fifth = flask.request.form["Links_in_tags"]
 
-            var_sixth = flask.request.form["Prefix_Suffix"]
-            var_seventh = flask.request.form["Links_pointing_to_page"]
-            var_eighth = flask.request.form["SFH"]
-            var_ninth = flask.request.form["Request_URL"]
-            var_tenth = flask.request.form["Domain_registeration_length"]
+        var_sixth = flask.request.form["Prefix_Suffix"]
+        var_seventh = flask.request.form["Links_pointing_to_page"]
+        var_eighth = flask.request.form["SFH"]
+        var_ninth = flask.request.form["Request_URL"]
+        var_tenth = flask.request.form["Domain_registeration_length"]
 
         user_input_text = [var_one, var_two, var_three, var_fourth, var_fifth,
-                         var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
+                        var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
 
         X = user_input_text
+
+        X = np.array(X)
+
+        X = X.reshape(1, -1)
+
+        X = X.tolist()
 
         # Make a prediction
         predictions = model.predict(X)
@@ -61,7 +67,6 @@ def main():
 
         precent_legit = predicted_proba[0]
         precent_phisihing = predicted_proba[1]
-
 
         return flask.render_template('mainpage.html',
             input_text=user_input_text,
