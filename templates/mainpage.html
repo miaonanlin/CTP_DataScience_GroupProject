@@ -9,7 +9,6 @@
   <body>
   	<h1> Phishing URL Websites Detector </h1>
 
-
 <form action="{{ url_for('main') }}" method="POST">
 
   <table class="box" width="0%" cellpadding="15" border="1">
@@ -22,6 +21,7 @@
           <select name="SSLfinal_State" type="number" required>
           		<option>Option</option>
           		<option>1</option>
+              <option>0</option>
           		<option>-1</option>
          </select>
        </td>
@@ -31,6 +31,7 @@
          <select name="URL_of_Anchor" type="number" required>
              <option>Option</option>
              <option>1</option>
+             <option>0</option>
              <option>-1</option>
         </select>
        </td>
@@ -40,6 +41,7 @@
          <select name="web_traffic" type="number" required>
              <option>Option</option>
              <option>1</option>
+             <option>0</option>
              <option>-1</option>
         </select>
        </td>
@@ -49,6 +51,7 @@
          <select name="having_Sub_Domain" type="number" required>
              <option>Option</option>
              <option>1</option>
+             <option>0</option>
              <option>-1</option>
         </select>
        </td>
@@ -58,6 +61,7 @@
          <select name="Links_in_tags" type="number" required>
              <option>Option</option>
              <option>1</option>
+             <option>0</option>
              <option>-1</option>
         </select>
        </td>
@@ -80,6 +84,7 @@
     <select name="Links_pointing_to_page" type="number" required>
         <option>Option</option>
         <option>1</option>
+        <option>0</option>
         <option>-1</option>
    </select>
   </td>
@@ -89,6 +94,7 @@
     <select name="SFH" type="number" required>
         <option>Option</option>
         <option>1</option>
+        <option>0</option>
         <option>-1</option>
    </select>
   </td>
@@ -120,6 +126,22 @@
 
 </table>
 </form>
+
+  {% if input_text %}
+    <h4> User Input: {{ input_text }} </h4>
+  {% endif %}
+
+  {% if result %}
+    <p> Result: {{ result }} </p>
+  {% endif %}
+
+  {% if percent_legit %}
+    <p> Percentage of Legitimacy: {{ percent_legit }} </p>
+  {% endif %}
+
+  {% if percent_phishing %}
+    <p> Percentage of Phishiness: {{ percent_phishing }} </p>
+  {% endif %}
 
   </body>
 </html>
