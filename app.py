@@ -3,7 +3,7 @@ import os
 import pickle
 import pandas as pd
 import numpy as np
-import sklearn 
+import sklearn
 
 app = flask.Flask(__name__, template_folder='templates')
 
@@ -20,12 +20,6 @@ def main():
         # Just render the initial form, to get input
         return(flask.render_template('mainpage.html'))
 
-    #if flask.request.method == 'POST':
-        # Get the input from the user.
-        #user_input_text = flask.request.form["input_variable_one","another-input-variable",
-         #"third-input-variable", "fourth-input-variable", "fifth-input-variable",
-        #"sixth-input-variable", "seventh-input-variable", 'eighth-input-variable',
-        #"ninth-input-variable", "tenth-input-variable"]
 
     if flask.request.method == 'POST':
             # Get the input from the user.
