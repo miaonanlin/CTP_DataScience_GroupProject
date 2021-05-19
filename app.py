@@ -58,6 +58,16 @@ def main():
         # Get the first and only value of the prediction.
         prediction = predictions[0]
 
+        prediction = str(prediction)
+
+        if (prediction == "1"):
+
+            prediction = "Legitimate Website"
+
+        if (prediction == "-1"):
+
+            prediction = "Phishing Website"
+
         # Get the predicted probabs
         predicted_probas = model.predict_proba(X)
 
