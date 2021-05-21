@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Phishing Websites Detector</title>
-    <link href="main.css" rel="stylesheet" type="text/css" \>
+
+    <link href="{{url_for('static', filename='styles/main.css')}}" rel="stylesheet" type="text/css" \>
   </head>
 
 
@@ -19,7 +20,7 @@
 
       <tr>
 				<td>
-          <h3>SSL Final State</h3><img src="question.jpg" alt="spicy_edamame" \>
+          <h3>SSL Final State</h3><img src="{{ url_for('static', filename='q.png')}}" alt="hey" \>
           <select name="SSLfinal_State" type="number" required>
           		<option>Option</option>
           		<option>1</option>
