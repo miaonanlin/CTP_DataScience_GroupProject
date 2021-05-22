@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import sklearn
 
-app = flask.Flask(__name__, template_folder='templates')
+app = flask.Flask(__name__, template_folder='templates', static_folder='static')
 
 
 path_to_classifier = 'model/classifier.pkl'
