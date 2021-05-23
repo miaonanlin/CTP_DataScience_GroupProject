@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Phishing Website Detection</title>
+    <link href="{{url_for('static', filename='styles/main.css')}}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="banner">
+      <br>
+      <br>
+     <ul>
+      <li ><a href="{{url_for('about')}}">About Us</li></a>
+      <li><a href="{{url_for('info')}}">Project Info</li></a>
+      <li><a href="{{url_for('main')}}">Home</li></a>
+    </ul>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <table class="aboutus" width="0%" cellpadding="18" cellspacing="0" border="1">
+
+    <tr>
+          <td><img src="{{ url_for('static', filename='me.png')}}" width="80%" />
+          <h3> Baruch College</h3>
+          <h4>Expected May 2021</h4>
+          <a href="https://www.linkedin.com/in/miaonanlin/">Linkedin</a>
+          </td>
+
+        <!--  <td><img src="{{ url_for('static', filename='me.png')}}" width="80%" />
+          <h2> Baruch College</h3>
+          <h4>Expected May 2021</h4>
+          <a href="https://www.linkedin.com/in/miaonanlin/">Linkedin</a>
+          </td> -->
+
+
+    </tr>
+
+
+  </body>
+  </html>

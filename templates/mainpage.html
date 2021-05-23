@@ -11,8 +11,9 @@
       <br>
       <br>
      <ul>
-      <li ><a href="#">Project Info</li></a>
-      <li><a href="#">About Us</li></a>
+      <li ><a href="{{url_for('about')}}">About Us</li></a>
+      <li><a href="{{url_for('info')}}">Project Info</li></a>
+      <li><a href="{{url_for('main')}}">Home</li></a>
     </ul>
       <br>
       <br>
@@ -208,7 +209,12 @@
 
 </table>
 </form>
+<br>
+<br>
+<br>
+<br>
 
+<div class="section2">
   {% if input_text %}
     <h4> User Input: {{ input_text }} </h4>
   {% endif %}
@@ -225,5 +231,12 @@
     <p> Percentage of Phishiness: {{ percent_phishing }} </p>
   {% endif %}
 
-  </body>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+</body>
 </html>

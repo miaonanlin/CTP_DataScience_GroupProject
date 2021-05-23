@@ -68,11 +68,16 @@ def main():
             precent_legit=precent_legit,
             precent_phisihing=precent_phisihing)
 
-
-
     return(flask.render_template('mainpage.html'))
 
 
+@app.route('/about/')
+def about():
+    return flask.render_template('about.html')
+
+@app.route('/info/')
+def info():
+    return flask.render_template('info.html')
 
 
 

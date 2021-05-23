@@ -78,3 +78,35 @@ ul a{
 }
 
 ul li>a:hover{color: #48C9B0;}
+
+
+.section2 {
+  text-align: center;
+
+}
+
+a{
+  color: #2E4053;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  hover:color: #48C9B0;
+}
+
+.aboutus{
+  margin-top: 140px;
+}
+
+.prezi{
+  margin-top: 40px;
+  margin-left: 460px;
+}
+
+h2{
+  text-align: center;
+  margin-top:100px;
+  color: #2E4053;
+
+}
+
+h3{color: #1C2833 ;}
