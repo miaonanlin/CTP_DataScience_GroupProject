@@ -38,6 +38,8 @@ def main():
         user_input_text = [var_one, var_two, var_three, var_fourth, var_fifth,
                         var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
 
+    
+
         X = user_input_text
 
         X = np.array(X)
@@ -52,6 +54,15 @@ def main():
         # Get the first and only value of the prediction.
         prediction = predictions[0]
 
+
+        if (prediction == 1):
+
+            prediction = "Legitimate Website"
+
+        if (prediction == -1):
+
+            prediction = "Phishing Website"
+
         # Get the predicted probabs
         predicted_probas = model.predict_proba(X)
 
@@ -59,14 +70,15 @@ def main():
         predicted_proba = predicted_probas[0]
 
 
-        precent_legit = predicted_proba[0]
-        precent_phisihing = predicted_proba[1]
+        percent_legit = predicted_proba[1]
+        percent_phishing = predicted_proba[0]
+
 
         return flask.render_template('mainpage.html',
-            input_text=user_input_text,
-            result=prediction,
-            precent_legit=precent_legit,
-            precent_phisihing=precent_phisihing)
+            input_text = user_input_text,
+            result = prediction,
+            percent_legit = percent_legit,
+            percent_phishing = percent_phishing)
 
     return(flask.render_template('mainpage.html'))
 
