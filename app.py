@@ -38,9 +38,34 @@ def main():
         user_input_text = [var_one, var_two, var_three, var_fourth, var_fifth,
                         var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
 
-    
+        user_input = [var_one, var_two, var_three, var_fourth, var_fifth,
+                    var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
 
-        X = user_input_text
+        features = ["SSL Final State", "URL of Anchor", "Web Traffic", "Having Sub Domain", 
+                    "Links in Tags", "Prefix Suffix", "Links Pointing to Page", "SFH", 
+                    "Request URL", "Domain Registeration Length"]
+
+        for i in range(10):
+
+            user_input_text[i] = features[i] + ": " + user_input_text[i]
+
+        for i in range(10):
+
+            if (user_input[i] == "Legitimate"):
+
+                user_input[i] = "1"
+
+            elif (user_input[i] == "Suspicious"):
+
+                user_input[i] = "0"
+
+            elif (user_input[i] == "Phishing"):
+
+                user_input[i] = "-1"
+
+            user_input[i] = int(user_input[i])
+
+        X = user_input
 
         X = np.array(X)
 
@@ -54,12 +79,13 @@ def main():
         # Get the first and only value of the prediction.
         prediction = predictions[0]
 
+        prediction = str(prediction)
 
-        if (prediction == 1):
+        if (prediction == "1"):
 
             prediction = "Legitimate Website"
 
-        if (prediction == -1):
+        if (prediction == "-1"):
 
             prediction = "Phishing Website"
 
@@ -70,8 +96,8 @@ def main():
         predicted_proba = predicted_probas[0]
 
 
-        percent_legit = predicted_proba[1]
-        percent_phishing = predicted_proba[0]
+        percent_legit = predicted_proba[1] * 100
+        percent_phishing = predicted_proba[0] * 100
 
 
         return flask.render_template('mainpage.html',
