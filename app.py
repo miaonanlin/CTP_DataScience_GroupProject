@@ -42,7 +42,7 @@ def main():
                     var_sixth, var_seventh, var_eighth, var_ninth, var_tenth]
 
         features = ["SSL Final State", "URL of Anchor", "Web Traffic", "Having Sub Domain", 
-                    "Links in Tags", "Prefix Suffix", "Links Pointing to Page", "SFH", 
+                    "Links in Tags", "Prefix Suffix", "Links Pointing to Page", "Server Form Handler (SFH)", 
                     "Request URL", "Domain Registeration Length"]
 
         for i in range(10):
@@ -105,7 +105,7 @@ def main():
 
 #        colors = ["#ABCABC", "#46BFBD"]
 
-        data = {"Legitimate" : percent_legit, "Phishing" : percent_phishing}
+        data = [percent_legit, percent_phishing]
 
         return flask.render_template('mainpage.html',
             input_text = user_input_text,
