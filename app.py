@@ -99,12 +99,6 @@ def main():
         percent_legit = predicted_proba[1] * 100
         percent_phishing = predicted_proba[0] * 100
 
-#        labels = ["Legitimate", "Phishing"]
-
-#        values = [percent_legit, percent_phishing]
-
-#        colors = ["#ABCABC", "#46BFBD"]
-
         data = [percent_legit, percent_phishing]
 
         return flask.render_template('mainpage.html',
