@@ -1,6 +1,6 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #F7F9F9 ;
+  background-color:  #FDFEFE ;
 }
 
 h1{
@@ -9,11 +9,12 @@ h1{
   padding-bottom: 0px;
   color: #1190cb;
   font-size: 35px;
-  margin-top: 5px;
-}
+  margin-top: 5px;}
+
 
 table {
-  margin-left: 220px;
+  margin-left: auto;
+  margin-right: auto;
   border-color: #FBFCFC;
 
 }
@@ -23,6 +24,7 @@ table {
   margin-top: 50px;
   margin-bottom: 0px;
   margin-left: 730px;
+
 }
 td{
   text-align: center;
@@ -112,3 +114,9 @@ h2{
 
 h3{color: #1C2833
   ;}
+
+
+.newsec {
+  margin-left: auto;
+  margin-right: auto;
+}
