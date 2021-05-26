@@ -58,7 +58,15 @@
           <h3>SSL Final State</h3>
 
           <div class="q">
-          <img src="{{ url_for('static', filename='q.PNG')}}" title="The existence of HTTPS is very important in giving the impression of website legitimacy, but this is clearly not enough. The authors in (Mohammad, Thabtah and McCluskey 2012) (Mohammad, Thabtah and McCluskey 2013) suggest checking the certificate assigned with HTTPS including the extent of the trust certificate issuer, and the certificate age. Certificate Authorities that are consistently listed among the top trustworthy names include: “GeoTrust, GoDaddy, Network Solutions, Thawte, Comodo, Doster and VeriSign”. Furthermore, by testing out our datasets, we find that the minimum age of a reputable certificate is two years. Rule: IF" width="20%"\>
+          <img src="{{ url_for('static', filename='q.PNG')}}" title="SSL stands for Secure Sockets Layer and, in short, it's the standard technology for keeping an internet connection secure and safeguarding any sensitive data that is being sent between two systems, preventing criminals from reading and modifying any information transferred, including potential personal details. &#010; 
+          HTTPS (Hyper Text Transder Protocol with Secure Sockets Layer) uses SSL and id very important in giving the impression of a website's legitimacy. &#010; 
+          The authors in (Mohammad, Thabtah and McCluskey 2012) (Mohammad, Thabtah and McCluskey 2013) suggest checking the certificate assigned with HTTPS including the extent of the trust certificate issuer, and the certificate age. Certificate Authorities that are consistently listed among the top trustworthy names include: “GeoTrust, GoDaddy, Network Solutions, Thawte, Comodo, Doster and VeriSign”. &#010; 
+          Furthermore, by testing out our datasets, we find that the minimum age of a reputable certificate is two years. &#010; 
+          Rule: IF { &#010; 
+              Use hhtps and Issuer Is Trusted and Age of Certificate &#8805; 1 Year &#8594; Legitimate &#010; 
+              Using hhtps and Issuer Is Not Trusted &#8594; Suspicious &#010; 
+              Otherwise &#8594; Phishing " 
+          width="20%"\>
           </div>
 
           <select name="SSLfinal_State" type="text" required>
@@ -75,7 +83,18 @@
          <h3>URL of Anchor</h3>
 
          <div class="q">
-         <img src="{{ url_for('static', filename='q.PNG')}}" title="An anchor is an element defined by the <a> tag. This feature is treated exactly as 'Request URL'. However, for this feature we examine: 1.If the </a><a> tags and the website have different domain names. This is similar to request URL feature. 2.If the anchor does not link to any webpage, e.g.: A.</a><a href=#> B.</a><a href=#content> C.</a><a href=#skip> D.</a><a href=JavaScript> Rule: IF</a>" width="14%"\>
+         <img src="{{ url_for('static', filename='q.PNG')}}" title="An anchor is an element defined by the <a> tag. This feature is treated exactly as 'Request URL'. However, for this feature we examine: &#010;
+         1.If the </a><a> tags and the website have different domain names. This is similar to request URL feature. &#010;
+         2.If the anchor does not link to any webpage, e.g.: &#010; 
+            A.</a><a href=#> &#010; 
+            B.</a><a href=#content> &#010; 
+            C.</a><a href=#skip> &#010; 
+            D.</a><a href=JavaScript> &#010; 
+         Rule: IF { &#010; 
+            % of URL Of Anchor < 31% &#8594; Legitimate &#010; 
+            % of URL OF Anchor &#8805; 31% And &#8804; 67% &#8594; Suspicious &#010; 
+            Otherwise &#8594; Phishing " 
+         width="14%"\>
          </div>
 
          <select name="URL_of_Anchor" type="text" required>
@@ -91,7 +110,12 @@
          <h3>Web Traffic</h3>
 
          <div class="q">
-         <img src="{{ url_for('static', filename='q.PNG')}}" title="This feature measures the popularity of the website by determining the number of visitors and the number of pages they visit. However, since phishing websites live for a short period of time, they may not be recognized by the Alexa database (Alexa the Web Information Company., 1996). By reviewing our dataset, we find that in worst scenarios, legitimate websites ranked among the top 100,000. Furthermore, if the domain has no traffic or is not recognized by the Alexa database, it is classified as “Phishing”. Otherwise, it is classified as “Suspicious”. Rule: IF" width="12%"\>
+         <img src="{{ url_for('static', filename='q.PNG')}}" title="This feature measures the popularity of the website by determining the number of visitors and the number of pages they visit. However, since phishing websites live for a short period of time, they may not be recognized by the Alexa database (Alexa the Web Information Company., 1996). By reviewing our dataset, we find that in worst scenarios, legitimate websites ranked among the top 100,000. Furthermore, if the domain has no traffic or is not recognized by the Alexa database, it is classified as “Phishing”. Otherwise, it is classified as “Suspicious”. &#010;
+         Rule: IF { &#010; 
+            Website Rank < 100,000 &#8594; Legitimate &#010; 
+            Website Rank > 100,000 &#8594; Suspicious &#010; 
+            Otherwise &#8594; Phishing " 
+         width="12%"\>
          </div>
 
          <select name="web_traffic" type="text" required>
@@ -108,7 +132,14 @@
          <h3>Having Sub Domain</h3>
 
          <div class="q">
-         <img src="{{ url_for('static', filename='q.PNG')}}" title="Let us assume we have the following link: http://www.hud.ac.uk/students/. A domain name might include the country-code top-level domains (ccTLD), which in our example is “uk”. The “ac” part is shorthand for “academic”, the combined “ac.uk” is called a second-level domain (SLD) and “hud” is the actual name of the domain. To produce a rule for extracting this feature, we firstly have to omit the (www.) from the URL which is in fact a sub domain in itself. Then, we have to remove the (ccTLD" width="15%"\>
+         <img src="{{ url_for('static', filename='q.PNG')}}" title="Let us assume we have the following link: http://www.hud.ac.uk/students/. A domain name might include the country-code top-level domains (ccTLD), which in our example is “uk”. The “ac” part is shorthand for “academic”, the combined “ac.uk” is called a second-level domain (SLD) and “hud” is the actual name of the domain. &#010;
+         To produce a rule for extracting this feature, we firstly have to omit the (www.) from the URL which is in fact a sub domain in itself. Then, we have to remove the (ccTLD) if it exists. Finally, we count the remaining dots. &#010; 
+         If the number of dots is greater than one, then the URL is classified as “Suspicious” since it has one sub domain. However, if the dots are greater than two, it is classified as “Phishing” since it will have multiple sub domains. Otherwise, if the URL has no sub domains, we will assign “Legitimate” to the feature. &#010; 
+         Rule: IF { &#010; 
+            Dots In Domain Part = 1 &#8594; Legitimate &#010; 
+            Dots In Domain Part = 2 &#8594; Suspicious &#010; 
+            Otherwise &#8594; Phishing " 
+         width="15%"\>
          </div>
 
          <select name="having_Sub_Domain" type="text" required>
@@ -124,7 +155,13 @@
          <h3>Links in Tags</h3>
 
          <div class="q">
-         <img src="{{ url_for('static', filename='q.PNG')}}" title="Given that our investigation covers all angles likely to be used in the webpage source code, we find that it is common for legitimate websites to use tags to offer metadata about the HTML document;" width="10%"\>
+         <img src="{{ url_for('static', filename='q.PNG')}}" title="Given that our investigation covers all angles likely to be used in the webpage source code, we find that it is common for legitimate websites to use tags to offer metadata about the HTML document; <Script> tags to create a client side script; and <Link> tages to retrieve other web resources. &#010; 
+         It is expected that these tags are linked to the same domain of the webpage. &#010; 
+         Rule: IF { &#010; 
+            % of Links in “<Meta>”, “<Script>” and “<Link>” < 17% &#8594; Legitimate &#010;
+            % of Links in “<Meta>”, “<Script>” and “<Link>” &#8805; 17% And &#8804; 81% &#8594; Suspicious &#010; 
+            Otherwise &#8594; Phishing " 
+         width="10%"\>
          </div>
 
          <select name="Links_in_tags" type="text" required>
@@ -144,7 +181,11 @@
     <h3>Prefix Suffix</h3>
 
     <div class="q">
-    <img src="{{ url_for('static', filename='q.PNG')}}" title="The dash symbol is rarely used in legitimate URLs. Phishers tend to add prefixes or suffixes separated by (-) to the domain name so that users feel that they are dealing with a legitimate webpage. For example http://www.Confirme-paypal.com/. Rule: IF" width="20%"\>
+    <img src="{{ url_for('static', filename='q.PNG')}}" title="The dash symbol is rarely used in legitimate URLs. Phishers tend to add prefixes or suffixes separated by (-) to the domain name so that users feel that they are dealing with a legitimate webpage. For example http://www.Confirme-paypal.com/. &#010; 
+    Rule: IF { &#010;
+        Domain Name Part Includes (-) Symbol &#8594; Phishing &#010; 
+        Otherwise &#8594; Legitimate " 
+    width="20%"\>
     </div>
 
     <select name="Prefix_Suffix" type="text" required>
@@ -159,7 +200,12 @@
     <h3>Links Pointing to Page</h3>
 
     <div class="q">
-    <img src="{{ url_for('static', filename='q.PNG')}}" title="The number of links pointing to the webpage indicates its legitimacy level, even if some links are of the same domain (Dean, 2014). In our datasets and due to its short life span, we find that 98% of phishing dataset items have no links pointing to them. On the other hand, legitimate websites have at least 2 external links pointing to them. Rule: IF" width="14%"\>
+    <img src="{{ url_for('static', filename='q.PNG')}}" title="The number of links pointing to the webpage indicates its legitimacy level, even if some links are of the same domain (Dean, 2014). In our datasets and due to its short life span, we find that 98% of phishing dataset items have no links pointing to them. On the other hand, legitimate websites have at least 2 external links pointing to them. &#010; 
+    Rule: IF { &#010;
+        Of Link Pointing to The Webpage = 0 &#8594; Phishing &#010; 
+        Of Link Pointing to The Webpage > 0 And &#8804; 2 &#8594; Suspicious &#010; 
+        Otherwise &#8594; Legitimate " 
+    width="14%"\>
     </div>
 
     <select name="Links_pointing_to_page" type="text" required>
@@ -175,7 +221,13 @@
     <h3>Server Form Handler (SFH)</h3>
 
     <div class="q">
-    <img src="{{ url_for('static', filename='q.PNG')}}" title="SFHs that contain an empty string or “about:blank” are considered doubtful because an action should be taken upon the submitted information. In addition, if the domain name in SFHs is different from the domain name of the webpage, this reveals that the webpage is suspicious because the submitted information is rarely handled by external domains. Rule: IF" width="12%"\>
+    <img src="{{ url_for('static', filename='q.PNG')}}" title="Server Form Handler (SFH) are used to get input from the user and submit it to the web server for processing. &#010; 
+    SFHs that contain an empty string or “about:blank” are considered doubtful because an action should be taken upon the submitted information. In addition, if the domain name in SFHs is different from the domain name of the webpage, this reveals that the webpage is suspicious because the submitted information is rarely handled by external domains. &#010; 
+    Rule: IF { &#010; 
+        SFH is “about:blank” Or Is Empty &#8594; Phishing &#010; 
+        SFH Refers To a Different Domain &#8594; Suspicious &#010; 
+        Otherwise &#8594; Legitimate " 
+    width="12%"\>
     </div>
 
     <select name="SFH" type="text" required>
@@ -191,7 +243,12 @@
     <h3>Request URL</h3>
 
     <div class="q">
-    <img src="{{ url_for('static', filename='q.PNG')}}" title="Request URL examines whether the external objects contained within a webpage such as images, videos and sounds are loaded from another domain. In legitimate webpages, the webpage address and most of objects embedded within the webpage are sharing the same domain. Rule: IF" width="15%"\>
+    <img src="{{ url_for('static', filename='q.PNG')}}" title="Request URL examines whether the external objects contained within a webpage such as images, videos and sounds are loaded from another domain. In legitimate webpages, the webpage address and most of objects embedded within the webpage are sharing the same domain. &#010; 
+    Rule: IF { &#010; 
+        % of Request URL < 22% &#8594; Legitimate &#010; 
+        % of Request URL &#8805; 22% And &#8804; 61% &#8594; Suspicious &#010; 
+        Otherwise &#8594; Phishing " 
+    width="15%"\>
     </div>
 
     <select name="Request_URL" type="text" required>
@@ -206,7 +263,11 @@
     <h3>Domain Registeration Length</h3>
 
     <div class="q">
-    <img src="{{ url_for('static', filename='q.PNG')}}" title="Based on the fact that a phishing website lives for a short period of time, we believe that trustworthy domains are regularly paid for several years in advance. In our dataset, we find that the longest fraudulent domains have been used for one year only. Rule: IF" width="10%"\>
+    <img src="{{ url_for('static', filename='q.PNG')}}" title="Based on the fact that a phishing website lives for a short period of time, we believe that trustworthy domains are regularly paid for several years in advance. In our dataset, we find that the longest fraudulent domains have been used for one year only. &#010; 
+    Rule: IF { &#010; 
+        Domain Expires on &#8804; 1 year &#8594; Phishing &#010; 
+        Otherwise &#8594; Legitimate " 
+    width="10%"\>
     </div>
 
     <select name="Domain_registeration_length" type="text" required>
