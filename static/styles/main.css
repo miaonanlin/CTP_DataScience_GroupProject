@@ -94,6 +94,27 @@ a{
   hover:color: #48C9B0;
 }
 
+.chart {
+
+  padding-left: 500px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 35px;
+  margin-top: 5px;
+
+}
+
+#myChart {
+
+  padding-left: 500px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 35px;
+  margin-top: 5px;
+
+
+}
+
 .aboutus{
   margin-top: 140px;
 }
